@@ -1,0 +1,61 @@
+{
+  "title": "Agent Prompt Schema",
+  "description": "Agent 提示词配置规范",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "当前配置使用的 Schema 路径"
+    },
+    "role": {
+      "type": "string",
+      "description": "Agent 的角色"
+    },
+    "identity": {
+      "type": "string",
+      "description": "Agent 的身份"
+    },
+    "goal": {
+      "type": "string",
+      "description": "Agent 的目标"
+    },
+    "instructions": {
+      "type": "array",
+      "description": "Agent 的执行指令",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Agent 的行为约束",
+      "items": {
+        "type": "string"
+      }
+    },
+    "workflow": {
+      "type": "array",
+      "description": "Agent 的工作流程",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output": {
+      "type": "object",
+      "description": "Agent 的输出要求",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["text", "markdown", "json"]
+        },
+        "language": {
+          "type": "string"
+        }
+      },
+      "required": ["format"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["role", "goal", "instructions"],
+  "additionalProperties": false
+}
