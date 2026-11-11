@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 HTML 页面</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+
+        header {
+            background: #1e293b;
+            color: white;
+            padding: 20px 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>我的网站</h1>
+
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">产品</a>
+            <a href="#">关于我们</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>欢迎访问</h2>
+
+            <p>
+                这是一个使用 HTML、CSS 和 JavaScript
+                编写的简单网页。
+            </p>
+
+            <button id="helloButton">
+                点击测试
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 我的 HTML 网站
+    </footer>
+
+    <script>
+        const button = document.getElementById("helloButton");
+
+        button.addEventListener("click", function () {
+            alert("你好！JavaScript 运行成功。");
+        });
+    </script>
+</body>
+</html>
