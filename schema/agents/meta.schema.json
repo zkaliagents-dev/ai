@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Agent 元数据",
+    "description": "Agent 的名称与功能描述，由 index.json 与 prompt.schema.json 组合为完整规范",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "title": "标识",
+            "description": "Agent 的唯一标识，建议使用 slug 或 UUID",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "name": {
+            "type": "string",
+            "title": "名称",
+            "description": "Agent 的名称，仅允许小写英文字母、数字及最多一个连字符",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)?$"
+        },
+        "description": {
+            "type": "string",
+            "title": "描述",
+            "description": "Agent 的功能描述",
+            "maxLength": 255
+        },
+        "avatar": {
+            "type": "string",
+            "title": "头像",
+            "description": "Agent 的头像地址",
+            "format": "uri"
+        }
+    },
+    "required": [
+        "name",
+        "description"
+    ]
+}
