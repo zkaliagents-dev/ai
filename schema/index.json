@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://zkaliagent.com/schema/agents/index.json",
+    "title": "Agent Prompt Schema",
+    "description": "Agent 提示词配置规范（元数据 + 提示词聚合入口）",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "./meta.schema.json"
+        },
+        {
+            "$ref": "./prompt.schema.json"
+        }
+    ],
+    "unevaluatedProperties": false
+}
