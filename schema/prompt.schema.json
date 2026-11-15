@@ -1,0 +1,108 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Agent 提示词",
+    "description": "Agent 的身份、目标、执行指令与输出要求，由 index.json 与 meta.schema.json 组合为完整规范",
+    "type": "object",
+    "properties": {
+        "identity": {
+            "type": "string",
+            "title": "身份",
+            "description": "Agent 的身份",
+            "maxLength": 255
+        },
+        "goal": {
+            "type": "string",
+            "title": "目标",
+            "description": "Agent 的目标",
+            "maxLength": 255
+        },
+        "responsibility": {
+            "type": "array",
+            "title": "职责",
+            "description": "Agent 的职责",
+            "items": {
+                "type": "string"
+            }
+        },
+        "instructions": {
+            "type": "array",
+            "title": "执行指令",
+            "description": "Agent 的执行指令",
+            "items": {
+                "type": "string"
+            }
+        },
+        "constraints": {
+            "type": "array",
+            "title": "行为约束",
+            "description": "Agent 的行为约束",
+            "items": {
+                "type": "string"
+            }
+        },
+        "output": {
+            "type": "object",
+            "title": "输出要求",
+            "description": "Agent 的输出要求",
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "title": "输出格式",
+                    "enum": [
+                        "text",
+                        "markdown",
+                        "json"
+                    ]
+                },
+                "language": {
+                    "type": "string",
+                    "title": "输出语言"
+                },
+                "schema": {
+                    "type": "object",
+                    "title": "输出结构",
+                    "description": "当 format 为 json 时必填，描述 JSON 输出的结构"
+                }
+            },
+            "required": [
+                "format"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "required": [
+        "identity",
+        "goal",
+        "responsibility",
+        "instructions"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "required": [
+                    "output"
+                ],
+                "properties": {
+                    "output": {
+                        "properties": {
+                            "format": {
+                                "const": "json"
+                            }
+                        }
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "output": {
+                        "required": [
+                            "format",
+                            "schema"
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}
+
