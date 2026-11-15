@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://zkaliagent.com/schema/agent-team/index.json",
+    "title": "Agent团队",
+    "description": "Agent团队契约规范",
+    "$comment": "Agent团队编写规则,",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "./team.schema.json"
+        },
+        {
+            "$ref": "./member/agent.schema.json"
+        }
+    ],
+    "unevaluatedProperties": false
+}

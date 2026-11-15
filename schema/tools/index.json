@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://zkaliagent.com/schema/tools/index.json",
+    "title": "工具包",
+    "description": "Tool 提示词配置规范（元数据 + 提示词聚合入口）",
+    "$comment": "Tool编写规则,",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "./meta.schema.json"
+        },
+        {
+            "$ref": "./prompt.schema.json"
+        }
+    ],
+    "unevaluatedProperties": false
+}
